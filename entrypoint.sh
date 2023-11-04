@@ -6,5 +6,5 @@ if [[ -z $OVH_HOSTING_USER || -z $OVH_HOSTING_PASSWORD || -z $OVH_HOSTING_DOMAIN
   exit 1
 fi
 
-sshpass -p "$OVH_HOSTING_PASSWORD" ssh -o StrictHostKeyChecking=no $OVH_HOSTING_USER@$OVH_HOSTING_DOMAIN "cd $REPOSITORY_DIR && git fetch origin && git checkout -b $REPOSITORY_BRANCH --track origin/$REPOSITORY_BRANCH  &&  rm -f README.md"
+sshpass -p "$OVH_HOSTING_PASSWORD" ssh -o StrictHostKeyChecking=no $OVH_HOSTING_USER@$OVH_HOSTING_DOMAIN "cd $REPOSITORY_DIR && git pull origin $REPOSITORY_BRANCH  &&  rm -f README.md"
 echo 'Done.'
